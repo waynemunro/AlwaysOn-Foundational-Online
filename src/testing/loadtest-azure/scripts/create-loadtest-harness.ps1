@@ -1,0 +1,11 @@
+$resourceGroupName = "aoint-azloadtest-rg"
+$loadTestName = "aoint-azloadtest"
+$loadTestId = "" # empty to generate a new one
+$loadTestDescription = "$loadTestName" + " Description"
+$engineSize = "m"
+$engineInstances = 3
+
+. ./create-loadtest.ps1 -resourceGroupName "$resourceGroupName" `
+  -loadTestName "$loadTestName" -loadTestId "$loadTestId" `
+  -loadTestDescription "$loadTestDescription" -engineSize "$engineSize" `
+  -engineInstances "$engineInstances"
