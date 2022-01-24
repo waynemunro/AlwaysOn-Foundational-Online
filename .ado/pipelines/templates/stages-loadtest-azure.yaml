@@ -27,8 +27,10 @@ stages:
 
     - template: steps-terraform-init.yaml
       parameters:
-        terraformStateFilename:       'terraform-azurelt-${{ parameters.customPrefix }}.state'
-        terraformWorkingDirectory:    '${{ parameters.terraformWorkingDirectory }}'
+        terraformStorageAccountName:       '$(terraformStorageAccount)'
+        terraformStorageResourceGroupName: '$(terraformResourceGroup)'
+        terraformStateFilename:            'terraform-azurelt-${{ parameters.customPrefix }}.state'
+        terraformWorkingDirectory:         '${{ parameters.terraformWorkingDirectory }}'
 
     # Deploy the locust infrastructure. If running in headless mode, the test will automatically start once the infra is provisioned.
     - template: steps-terraform-apply.yaml
